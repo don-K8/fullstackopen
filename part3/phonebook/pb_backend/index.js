@@ -3,7 +3,6 @@ const express = require('express')
 const Person = require('./models/person')
 
 const morgan = require('morgan')
-const note = require('../../../../FSO/Notes/backend/models/note')
 const app = express()
 
 app.use(express.json())

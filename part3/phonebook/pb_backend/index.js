@@ -27,7 +27,7 @@ app.get('/api/persons', (request, response) => {
   
 })
 
-app.get('/info', (request, response) => {
+app.get('/info', (request, response, next) => {
   Person.countDocuments({})
     .then(count => {
       response.send(`
@@ -38,14 +38,16 @@ app.get('/info', (request, response) => {
     .catch(error => next(error))
 })
 
-app.get('/api/persons/:id', (request, response) => {
-  Person.findById(request.params.id).then(person => {
-    response.json(person)
-  })
+app.get('/api/persons/:id', (request, response, next) => {
+  Person.findById(request.params.id)
+    .then(person => {
+      response.json(person)
+    })
+    .catch(error => next(error))
 
 })
 
-app.delete('/api/persons/:id', (request, response) => {
+app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndDelete(request.params.id)
     .then(result => {
       response.status(204).end()
@@ -73,12 +75,12 @@ app.post('/api/persons', (request, response) => {
 
 })
 
-app.put('/api/persons/:id', (request, response) => {
+app.put('/api/persons/:id', (request, response, next) => {
   const { number } = request.body
 
   Person.findById(request.params.id)
     .then(person => {
-      if (!note) {
+      if (!person) {
         return response.status(404).end()
       }
 

@@ -1,0 +1,35 @@
+GET http://localhost:3003/api/blogs
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json 
+
+{
+  "title": "Test Blog",
+  "author": "John Doe",
+  "url": "http://example.com/test-blog",
+  "likes": 0
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Test Blog 2",
+  "author": "Jane Doe",
+  "url": "http://example.com/test-blog-2",
+  "likes": 8
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "New Blog",
+  "author": "Dan Abramov",
+  "url": "http://example.com/test-blog-2",
+  "likes": 8
+}
+

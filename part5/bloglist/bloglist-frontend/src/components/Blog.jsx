@@ -29,7 +29,7 @@ const Blog = ({ blog, addLike, deleteBlog, user }) => {
           {blog.url}
         </Typography>
         <Typography sx={{ mt: 1, color: 'grey', fontSize: '.8rem'}}>
-          Added by {user.name}
+          Added by {blog.user.name}
         </Typography>
       </CardContent>
       <CardActions sx={{ px: 2, mt: -2, alignItems: 'center' }}>
